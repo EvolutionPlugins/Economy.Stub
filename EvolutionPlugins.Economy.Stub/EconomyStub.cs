@@ -1,4 +1,5 @@
-﻿using OpenMod.API.Plugins;
+﻿using JetBrains.Annotations;
+using OpenMod.API.Plugins;
 using OpenMod.Core.Plugins;
 using System;
 
@@ -7,6 +8,7 @@ using System;
 
 namespace EvolutionPlugins.Economy.Stub
 {
+    [UsedImplicitly]
     public class EconomyStub : OpenModUniversalPlugin
     {
         public EconomyStub(IServiceProvider serviceProvider) : base(serviceProvider)
