@@ -2,20 +2,18 @@
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using OpenMod.API.Ioc;
-using OpenMod.API.Prioritization;
 using OpenMod.Extensions.Economy.Abstractions;
 
 namespace EvolutionPlugins.Economy.Stub
 {
-    [Priority(Priority = Priority.Lowest)]
     [UsedImplicitly]
-    public class ServiceConfigurator : IServiceConfigurator
+    public static class ServiceCollectionExtension
     {
-        public void ConfigureServices(IOpenModServiceConfigurationContext openModStartupContext,
-            IServiceCollection serviceCollection)
+        [UsedImplicitly]
+        public static IServiceCollection AddEconomyStub(this IServiceCollection serviceCollection)
         {
             serviceCollection.TryAddSingleton<IEconomyProvider, EconomyProviderStub>();
+            return serviceCollection;
         }
     }
 }
